@@ -39,9 +39,6 @@ object QuadPic extends App{
   val finalImg = new BufferedImage(img.getWidth, img.getHeight, BufferedImage.TYPE_INT_ARGB)
   val finalGraphics = finalImg.getGraphics
 
-  val output = new FileImageOutputStream(new File("out//finalgif.gif"))
-  val writer = new GifSequenceWriter(output, BufferedImage.TYPE_INT_ARGB, 1, false)
-
   quadPriorityQueue += Quad(0, 0, img.getWidth, img.getHeight, 0)
   val n = 5000
   for (i <- 0 until n) {
@@ -51,7 +48,6 @@ object QuadPic extends App{
     if (i % getModuloNumber(i) == 0) {
       finalGraphics.drawImage(workingImage, 0, 0, null)
       finalGraphics.drawImage(overlay, 0, 0, null)
-      writer.writeToSequence(finalImg)
     }
   }
 
@@ -61,8 +57,6 @@ object QuadPic extends App{
 
   overlayGraphics.dispose
   finalGraphics.dispose
-  writer.close
-  output.close
 
   def splitIntoQuads(startX: Int, startY: Int, width: Int, height: Int, bufferedImage: BufferedImage) = {
     val quadW = width / 2
