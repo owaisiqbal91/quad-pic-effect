@@ -5,4 +5,5 @@ Scala script to split an image recursively into quadrants that are filled with t
 This produces a neat effect where the more detailed sections of an image have more quadrants in them.
 
 Gif of process:
+
 ![Final GIF](https://github.com/owaisiqbal91/quad-pic-effect/blob/master/out/finalgif.gif "Final GIF")
